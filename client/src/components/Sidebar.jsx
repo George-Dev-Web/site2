@@ -1,28 +1,24 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+// src/components/Sidebar.jsx
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/components/Sidebar.css";
 
 const Sidebar = () => {
-  const linkClass = ({ isActive }) =>
-    `block px-4 py-2 rounded hover:bg-gray-700 ${
-      isActive ? "bg-gray-700 text-white font-semibold" : "text-gray-300"
-    }`;
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <aside className="w-60 bg-gray-900 border-r border-gray-800 p-4 space-y-2 h-screen">
-      <h2 className="text-white text-lg font-semibold mb-4">Navigation</h2>
-      <NavLink to="/projects" className={linkClass}>
-        Projects
-      </NavLink>
-      <NavLink to="/tasks" className={linkClass}>
-        All Tasks
-      </NavLink>
-      <NavLink to="/mytasks" className={linkClass}>
-        My Tasks
-      </NavLink>
-      <NavLink to="/assignees" className={linkClass}>
-        Assignees
-      </NavLink>
-    </aside>
+    <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
+      <button className="collapse-btn" onClick={() => setCollapsed(!collapsed)}>
+        {collapsed ? "➤" : "⬅"}
+      </button>
+      <nav className="sidebar-nav">
+        <Link to="/dashboard">🏠 {collapsed ? "" : "Dashboard"}</Link>
+        <Link to="/projects">📁 {collapsed ? "" : "Projects"}</Link>
+        <Link to="/tasks">📝 {collapsed ? "" : "Tasks"}</Link>
+        <Link to="/mytasks">✅ {collapsed ? "" : "My Tasks"}</Link>
+        <Link to="/assignees">👷🏾‍♂️ {collapsed ? "" : "Assignees"}</Link>
+      </nav>
+    </div>
   );
 };
 

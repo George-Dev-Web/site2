@@ -1,10 +1,10 @@
 import React from "react";
+import "../styles/components/Navbar.css";
 
 const Navbar = () => {
   return (
-    <header className="bg-gray-800 text-white px-6 py-3 shadow-md flex justify-between items-center">
-      <h1 className="text-xl font-bold">SiteTask Tracker</h1>
-      <div className="text-sm text-gray-300">Welcome, Engineer</div>
+    <header className="navbar">
+      <h1 className="navbar-title">SiteTask Tracker</h1>
     </header>
   );
 };

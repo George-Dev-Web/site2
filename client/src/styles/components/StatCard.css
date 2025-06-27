@@ -1,0 +1,42 @@
+.stat-card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+}
+
+.stat-icon {
+  font-size: 1.875rem; /* 30px */
+  padding: 0.75rem;
+  border-radius: 9999px;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+.stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+.bg-blue {
+  background-color: #3b82f6;
+}
+
+.bg-green {
+  background-color: #22c55e;
+}
+
+.bg-orange {
+  background-color: #f59e42;
+}
+
+.bg-purple {
+  background-color: #a855f7;
+}
+/* Optional: predefined colors */
+/* Removed @apply rules due to unknown at rule error */

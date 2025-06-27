@@ -1,0 +1,70 @@
+.activity-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.task-title {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 0.875rem;
+}
+
+.task-status {
+  font-size: 0.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-completed {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
+.status-inprogress {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-pending {
+  background-color: #fef9c3;
+  color: #b45309;
+}
+
+.status-default {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.task-project {
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+.task-assignee {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+}
+
+.task-project {
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+.task-assignee {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
