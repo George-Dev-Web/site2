@@ -1,12 +1,13 @@
+// src/pages/Login.jsx
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "../services/api";
-import "../styles/pages/Login.css";
+import axios from "../services/api"; // Ensure this path is correct for your axios instance
+import { useAuth } from "../context/AuthContext"; // Import useAuth hook
+import "../styles/pages/Login.css"; // Ensure path is correct
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const { login } = useAuth(); // Get the login function from AuthContext
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -14,21 +15,25 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setError(""); // Clear previous errors
 
     try {
       const res = await axios.post("/auth/login", formData);
-      const token = res.data.access_token;
+      const token = res.data.token;
 
       if (token) {
-        localStorage.setItem("token", token); // ✅ Store JWT
-        navigate("/dashboard"); // ✅ Redirect to dashboard
+        login(token); // Call the login function from context, which handles state update and redirection
       } else {
-        setError("No token received.");
+        setError("No token received from the server.");
       }
     } catch (err) {
-      console.error(err);
-      setError("Invalid credentials.");
+      console.error("Login error:", err); // Log the full error
+      // Check for specific error responses from Flask
+      if (err.response && err.response.data && err.response.data.error) {
+        setError(err.response.data.error);
+      } else {
+        setError("Login failed. Please check your credentials.");
+      }
     }
   };
 
